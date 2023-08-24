@@ -38,6 +38,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.expensesapp.ui.theme.ExpensesAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import com.example.expensesapp.paresantation.PersonItem
@@ -45,8 +46,6 @@ import com.example.expensesapp.paresantation.PersonItem
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
-    private val viewModel: MainViewModel by viewModels()
 
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,6 +57,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    val viewModel = viewModel<MainViewModel>()
                     val state = viewModel.uiState
                     val context = LocalContext.current
                     LaunchedEffect(key1 = context) {
