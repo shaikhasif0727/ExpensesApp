@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ExpensesApp"
 include(":app")
+include(":expense-datastore")
